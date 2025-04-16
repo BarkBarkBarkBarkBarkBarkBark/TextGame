@@ -1,22 +1,42 @@
-clone the repo
+
+Install Docker desktop
+
+Clone the repo
+
+```
+git clone https://github.com/BarkBarkBarkBarkBarkBarkBark/TextGame.git
+```
+
+Change .env.example to .env, and add openai key
 
 
-navigate to root
+navigate to directory
 
 ```
 cd TextGame
 ```
 
-run install script
+make sure that setup script is executable, and then execute
 
 ```
 chmod +x install_game.sh
 ./install_game.sh
 ```
 
+Create Game Tables
+
+```
+python utils/create_tables.py
 ```
 
-begin game from command line
+Upload some premade puzzles
+
+```
+python utils/upload_puzzles.py
+```
+
+Start the dang game
+
 ```
 start-game
 ```
