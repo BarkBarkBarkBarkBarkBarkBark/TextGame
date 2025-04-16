@@ -45,6 +45,7 @@ if [ ! -d "venv" ]; then
     status "Created new virtual environment."
 fi
 
+# Source the virtual environment in the current shell
 source venv/bin/activate
 
 # Upgrade pip
@@ -76,9 +77,18 @@ else
     error_exit "Could not find ./utils/create_postgres_docker.sh script. Please ensure the file exists and is executable."
 fi
 
+# 5. Create database tables
+status "Creating database tables..."
+python utils/create_tables.py
+
+# 6. Upload puzzles
+status "Uploading puzzles..."
+python utils/upload_puzzles.py
+
 status "🎉 Installation completed successfully! You're ready to play."
 
-echo -e "\033[1;32mTo start your game, activate your virtual environment:\033[0m"
-echo -e "  source venv/bin/activate"
-echo -e "Then run your game:"
+echo -e "\033[1;32mYour virtual environment is now active. Run your game with:\033[0m"
 echo -e "  start-game\n"
+
+# Keep the virtual environment active by not exiting the script
+exec $SHELL
