@@ -1,0 +1,2 @@
+[console_scripts]
+start-game = game_engine.cli:main
