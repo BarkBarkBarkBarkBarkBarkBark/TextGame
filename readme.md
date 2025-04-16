@@ -30,15 +30,3 @@ cd TextGame
 chmod +x install_game.sh
 ./install_game.sh
 ```
-
-### Create Game Tables
-
-```
-python utils/create_tables.py
-```
-
-### Upload some premade puzzles
-
-```
-python utils/upload_puzzles.py
-```
